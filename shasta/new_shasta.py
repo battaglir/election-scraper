@@ -17,7 +17,7 @@ headers = {
 r = requests.get("https://results.enr.clarityelections.com/CA/Shasta/120178/332057/json/en/summary.json", headers=headers)
 
 # Import the JSON
-r.status_code()
+print(r.status_code)
 r.raise_for_status()
 
 print(r.text)
