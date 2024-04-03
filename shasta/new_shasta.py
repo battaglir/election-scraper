@@ -385,6 +385,8 @@ with open("results_file_names.txt", "r") as f:
         with open("chart_ids.txt", "a") as idn:
                idn.write(chart_id + "\n")
 
+        dw.publish_chart(chart_id)
+        
         iframe = dw.get_iframe_code(chart_id)
 
         with open("iframes.txt", "w") as ifr:
