@@ -92,7 +92,7 @@ with open("results_file_names.txt", "r") as f:
             title = re.match(r"^(.*?)_", current_results_chart).group(1),
             chart_type='tables',
             data=df,
-            folder_id='233686'
+            folder_id='233700'
         )
         #Define the chart ID
         chart_id = chart_config["id"]
