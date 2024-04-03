@@ -1,5 +1,5 @@
 # request the required databases
-import requests, re, pandas as pd, time, datetime, json, csv
+import requests, re, pandas as pd, time, datetime, json, csv, os
 
 from datawrapper import Datawrapper
 
