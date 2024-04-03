@@ -3,6 +3,8 @@ import requests, re, pandas as pd, time, datetime, json, csv
 
 from datawrapper import Datawrapper
 
+DATAWRAPPER_API_KEY = os.environ['DATAWRAPPER_API_KEY']
+
 dw = Datawrapper(DATAWRAPPER_API_KEY)
 
 #define custom headers
