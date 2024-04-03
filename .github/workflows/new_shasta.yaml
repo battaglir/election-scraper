@@ -20,15 +20,17 @@ jobs:
           python-version: 3.x
 
       - name: Install dependencies
-        run: |
-        python -m pip install --upgrade pip
-        python pip install datawrapper
+        run: |-
+          python -m pip install --upgrade pip
+          python pip install datawrapper
+
+        
 
       - name: Run new_shasta.py
-        with:
-          DATAWRAPPER_API_KEY: ${{ secrets.DATAWRAPPER_API_KEY }}
         run: python new_shasta.py
         working-directory: ./shasta
+        env:
+          DATAWRAPPER_API_KEY: ${{ secrets.DATAWRAPPER_API_KEY }}
 
       - name: Commit and push to main branch
         run: |-
