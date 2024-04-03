@@ -19,6 +19,8 @@ r = requests.get("https://results.enr.clarityelections.com/CA/Shasta/120178/3320
 # Import the JSON
 r.raise_for_status()
 
+print(r.text)
+
 #Converts the raw data to a JSON file
 data = r.json()
 
