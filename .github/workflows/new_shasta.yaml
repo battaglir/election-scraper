@@ -23,6 +23,7 @@ jobs:
         with:
           DATAWRAPPER_API_KEY: ${{ secrets.DATAWRAPPER_API_KEY }}
         run: python new_shasta.py
+        working-directory: ./shasta
 
       - name: Commit and push to main branch
         run: |-
