@@ -24,6 +24,8 @@ r = requests.get("https://results.enr.clarityelections.com/CA/Shasta/120178/3320
 print(r.status_code)
 r.raise_for_status()
 print(r.text)
+if not r.content:
+    print("There's no data available")
 
 #Converts the raw data to a JSON file
 data = r.json()
