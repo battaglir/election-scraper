@@ -2,9 +2,11 @@
 #and then override the existing CSV files with the latest results.
 
 # request the required databases
-import requests, time, datetime, json, csv, pandas as pd
+import requests, time, datetime, json, csv, pandas as pd, os
 
 from datawrapper import Datawrapper
+
+DATAWRAPPER_API_KEY = os.environ['DATAWRAPPER_API_KEY']
 
 #Define the dw variable as the Datawrapper command with the API key
 dw = Datawrapper(DATAWRAPPER_API_KEY)
