@@ -1,0 +1,1 @@
+<iframe title="Measure D" aria-label="Table" id="datawrapper-chart-1JqyD" src="https://datawrapper.dwcdn.net/1JqyD/1/" scrolling="no" frameborder="0" style="border: none;" width="600" height="192" data-external="1"></iframe>

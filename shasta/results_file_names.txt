@@ -1,0 +1,8 @@
+1st Senatorial District_results_clean.csv
+1st Assembly District_results_clean.csv
+Supervisor, District 2_results_clean.csv
+Supervisor, District 3_results_clean.csv
+Supervisor, District 4_results_clean.csv
+Supervisor, District 1 Recall_results_clean.csv
+Measure C_results_clean.csv
+Measure D_results_clean.csv
