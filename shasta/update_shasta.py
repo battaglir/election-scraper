@@ -1,4 +1,4 @@
-#This first chunk of code will grab the latest results from teh website, save them to a seperate file,
+#This first chunk of code will grab the latest results from the website, save them to a seperate file,
 #and then override the existing CSV files with the latest results.
 
 # request the required databases
