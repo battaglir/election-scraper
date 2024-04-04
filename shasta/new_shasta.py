@@ -389,5 +389,5 @@ with open("results_file_names.txt", "r") as f:
         
         iframe = dw.get_iframe_code(chart_id)
 
-        with open("iframes.txt", "w") as ifr:
+        with open("iframes.txt", "a") as ifr:
                ifr.write(iframe + "\n")
