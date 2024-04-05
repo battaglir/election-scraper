@@ -11,15 +11,44 @@ DATAWRAPPER_API_KEY = os.environ['DATAWRAPPER_API_KEY']
 #Define the dw variable as the Datawrapper command with the API key
 dw = Datawrapper(DATAWRAPPER_API_KEY)
 
-#define custom headers
+# Define custom headers
 headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36'
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36',
+    'Accept-Language': 'en-US,en;q=0.5',
+    'Accept-Encoding': 'gzip, deflate, br',  # You can add more headers if needed
 }
 
-#set the website request with the custom headers
-#IMPORTANT: The URL must be changed to the desired election
-r = requests.get("https://results.enr.clarityelections.com/CA/Shasta/120178/332057/json/en/summary.json", headers=headers)
+# Set the website request with the custom headers
+url = "https://results.enr.clarityelections.com/CA/Shasta/120178/332057/json/en/summary.json"
+retry_count = 5  # Number of retries if request fails
+retry_delay = 5  # Delay between retries in seconds
 
+for i in range(retry_count):
+    try:
+        r = requests.get(url, headers=headers)
+        r.raise_for_status()
+        print("Request successful")
+        break
+    except requests.exceptions.HTTPError as errh:
+        print("Http Error:", errh)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+    except requests.exceptions.ConnectionError as errc:
+        print("Error Connecting:", errc)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+    except requests.exceptions.Timeout as errt:
+        print("Timeout Error:", errt)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+    except requests.exceptions.RequestException as err:
+        print("OOps: Something Else", err)
+        print(f"Retrying in {retry_delay} seconds...")
+        time.sleep(retry_delay)
+else:
+    print("Max retries exceeded. Exiting...")
+    exit()
+    
 # Import the JSON
 print(r.status_code)
 r.raise_for_status()
