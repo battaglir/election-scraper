@@ -51,7 +51,7 @@ for i in range(retry_count):
         time.sleep(retry_delay)
 else:
     print("Max retries exceeded. Exiting...")
-    exit()
+    break
     
 # Import the JSON
 print(r.status_code)
