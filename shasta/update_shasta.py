@@ -23,6 +23,7 @@ r = requests.get("https://results.enr.clarityelections.com/CA/Shasta/120178/3320
 # Import the JSON
 print(r.status_code)
 r.raise_for_status()
+print(r.headers)
 print(r.text)
 if not r.content:
     print("There's no data available")
