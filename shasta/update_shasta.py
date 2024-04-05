@@ -26,6 +26,10 @@ retry_delay = 5  # Delay between retries in seconds
 for i in range(retry_count):
     try:
         r = requests.get(url, headers=headers)
+        if r.status_code == 202:
+            print("Received 202 response, retrying...")
+            time.sleep(retry_delay)
+            continue
         r.raise_for_status()
         print("Request successful")
         break
